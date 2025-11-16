@@ -1,3 +1,4 @@
+//x86_64-w64-mingw32-g++ -o sys-info-win.exe sys-info-win.cpp -lpsapi -lnetapi32
 #include <windows.h>
 #include <stdio.h>
 #include <tchar.h>
