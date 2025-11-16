@@ -96,7 +96,7 @@ void LogicDiscs() {
 }
 
 int main() {
-    SetConsoleOutputCP(65001);
+    SetConsoleOutputCP(CP_UTF8);
   
     OS();
     Mem();
