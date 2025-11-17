@@ -94,7 +94,6 @@ int main() {
     Mem();
     Proc();
     PC();
-    LogicDiscs();
     
     printf("Нажмите любую клавишу для выхода...");
     getchar();
