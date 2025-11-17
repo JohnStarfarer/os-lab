@@ -38,8 +38,7 @@ void Mem() {
     perfInfo.cb = sizeof(PERFORMANCE_INFORMATION);
     
     if (GetPerformanceInfo(&perfInfo, sizeof(PERFORMANCE_INFORMATION))) {
-        printf("Размер файла подкачки: %.2f GB\n", 
-               (double)(perfInfo.PageSize * perfInfo.CommitLimit) / (1024 * 1024 * 1024));
+        printf("Размер файла подкачки: %.2f GB\n", (double)(perfInfo.PageSize * perfInfo.CommitLimit) / (1024 * 1024 * 1024));
     }
     printf("\n");
 }
@@ -53,9 +52,6 @@ void Proc() {
     
     printf("Архитектура процессора: ");
     switch (sysInfo.wProcessorArchitecture) {
-        case PROCESSOR_ARCHITECTURE_AMD64:
-            printf("x64 (AMD или Intel)\n");
-            break;
         case PROCESSOR_ARCHITECTURE_ARM:
             printf("ARM\n");
             break;
@@ -89,10 +85,6 @@ void PC() {
         _tprintf(_T("Имя пользователя: %s\n"), userName);
     }
     printf("\n");
-}
-
-void LogicDiscs() {
-
 }
 
 int main() {
