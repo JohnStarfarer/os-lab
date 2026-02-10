@@ -14,13 +14,6 @@
 #include <iomanip>
 #include <numeric>
 
-// Прототипы функций
-void child_process(int n, int start_row, int end_row, 
-                   int* shared_A, int* shared_B, int* shared_C);
-void generate_matrix(int* matrix, int n);
-void print_submatrix(int* matrix, int n);
-void print_help();
-
 int main(int argc, char* argv[]) {
     if (argc < 3) {
         print_help();

@@ -11,13 +11,6 @@
 #include <numeric>
 #include <fstream>
 
-// прототипы
-void multiply_part(const std::vector<int>& A, const std::vector<int>& B,
-                   std::vector<int>& C, int n, int start_row, int end_row);
-void generate_matrix(std::vector<int>& matrix, int n);
-void print_submatrix(const std::vector<int>& matrix, int n);
-void print_help();
-
 int main(int argc, char* argv[]) {
     if (argc < 3) {
         print_help();
