@@ -1,10 +1,9 @@
 import os
-import asyncio
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
 from dotenv import load_dotenv
 
-from db import get_connection, init_db, wait_for_db
+from db import get_connection, init_db
 
 load_dotenv()
 
@@ -17,7 +16,7 @@ dp = Dispatcher()
 @dp.message(Command("start"))
 async def start(message: types.Message):
     await message.answer(
-        "Привет!\n"
+        "Бот лабы 5\n"
         "/add <текст> — добавить запись\n"
         "/list — показать записи"
     )
@@ -39,7 +38,7 @@ async def add_note(message: types.Message):
             )
     conn.close()
 
-    await message.answer("Запись добавлена ✅")
+    await message.answer("Запись добавлена")
 
 
 @dp.message(Command("list"))
@@ -60,11 +59,10 @@ async def list_notes(message: types.Message):
 
 
 async def main():
-    # Ждем готовности БД перед запуском
-    wait_for_db()
     init_db()
     await dp.start_polling(bot)
 
 
 if __name__ == "__main__":
+    import asyncio
     asyncio.run(main())

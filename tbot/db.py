@@ -1,7 +1,5 @@
 import os
-import time
 import psycopg2
-from psycopg2 import OperationalError
 
 
 def get_connection():
@@ -12,22 +10,6 @@ def get_connection():
         user=os.getenv("DB_USER"),
         password=os.getenv("DB_PASSWORD"),
     )
-
-
-def wait_for_db(max_retries=30, delay_seconds=2):
-    """Ожидает готовности базы данных."""
-    retries = 0
-    while retries < max_retries:
-        try:
-            conn = get_connection()
-            conn.close()
-            print("✅ Database is available!")
-            return True
-        except OperationalError as e:
-            print(f"⏳ Database not ready (attempt {retries+1}/{max_retries}): {e}")
-            time.sleep(delay_seconds)
-            retries += 1
-    raise Exception("❌ Could not connect to the database after several retries")
 
 
 def init_db():
